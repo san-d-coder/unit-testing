@@ -7,14 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,8 +39,9 @@ public class Employee {
 	public void setEmpDept(String empDept) {
 		this.empDept = empDept;
 	}
-	public Employee(String empNum, String empName, String empDept) {
+	public Employee(long id, String empNum, String empName, String empDept) {
 		super();
+		this.id = id;
 		this.empNum = empNum;
 		this.empName = empName;
 		this.empDept = empDept;
@@ -71,6 +65,12 @@ public class Employee {
 		return Objects.equals(empDept, other.empDept) && Objects.equals(empName, other.empName)
 				&& Objects.equals(empNum, other.empNum) && id == other.id;
 	}
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", empNum=" + empNum + ", empName=" + empName + ", empDept=" + empDept + "]";
+	}
+	
+	
 	
 	
 }

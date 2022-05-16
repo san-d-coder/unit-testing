@@ -21,7 +21,7 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 
 	@GetMapping(value = "/find/{empNum}")
-	public Employee findByEmpNum(@PathVariable(name = "empNum") long empNum) {
+	public Employee findByEmpNum(@PathVariable(name = "empNum") String empNum) {
 		return this.employeeService.findByEmpNum(empNum);
 	}
 
